@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DREAM4HEALTH — Consortium Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E2430;
+  --ink-2:#1B3A47;
+  --paper:#F1F2EF;
+  --card:#FFFFFF;
+  --rule:#D3D8D6;
+  --jade:#0F7A6C;
+  --ochre:#B4531B;
+  --muted:#55676E;
+  --serif:'Spectral',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+a{color:var(--jade);text-decoration:none;border-bottom:1px solid rgba(15,122,108,.35)}
+a:hover{border-bottom-color:var(--jade)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+
+/* ---------- masthead ---------- */
+.masthead{background:var(--ink);color:#EAF0EE;padding:26px 0 22px}
+.masthead .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
+.brand{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:.01em;line-height:1}
+.brand span{color:var(--jade)}
+.fulltitle{font-size:13.5px;color:#9FB4B8;max-width:640px;margin-top:9px;line-height:1.45}
+.ref{font-family:var(--mono);font-size:11.5px;color:#8FA6AB;text-align:right;line-height:1.9}
+.ref b{color:#EAF0EE;font-weight:500}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:20;background:rgba(241,242,239,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;gap:22px;overflow-x:auto;padding-top:11px;padding-bottom:11px}
+nav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:0;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{padding:52px 0 20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);margin-bottom:14px}
+.count{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.count .n{font-family:var(--serif);font-size:clamp(56px,11vw,104px);line-height:.86;font-weight:600;letter-spacing:-.02em}
+.count .lab{font-family:var(--serif);font-size:clamp(20px,3.4vw,30px);font-style:italic;color:var(--ink-2);line-height:1.2}
+.hero p.lede{font-family:var(--serif);font-size:19px;line-height:1.62;max-width:760px;margin:26px 0 0}
+
+/* ---------- award path ---------- */
+.path{margin:36px 0 0;border-top:1px solid var(--rule);padding-top:22px}
+.path ol{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin:0;padding:0;background:var(--rule)}
+.path li{background:var(--paper);padding:14px 14px 16px;position:relative}
+.path li .when{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.path li .what{font-size:14px;margin-top:5px;line-height:1.35}
+.path li.now{background:var(--ink);color:#EAF0EE}
+.path li.now .when{color:var(--jade)}
+.path li.done .what{color:var(--muted)}
+.path li.now:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--ochre)}
+.path li.now .where{font-size:12px;margin-top:6px;line-height:1.35;color:#A8BDC1}
+
+/* ---------- funder ---------- */
+.funder{background:var(--card);border:1px solid var(--rule);margin:30px 0 0;padding:26px 28px}
+.funder .fk{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);margin-bottom:12px}
+.funder h3{font-family:var(--serif);font-size:20px;font-weight:600;margin:0 0 10px;letter-spacing:-.01em}
+.funder p{margin:0 0 14px;font-size:14.5px;color:var(--muted);max-width:760px;line-height:1.6}
+.funder .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border-top:1px solid var(--rule);margin-top:18px}
+.funder .fgrid>div{background:var(--card);padding:15px 16px 16px}
+.funder .fgrid .fl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.funder .fgrid .fv{font-size:14px;color:var(--ink);line-height:1.45}
+.funder a.flink{display:inline-block;margin-top:4px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ochre);padding-bottom:2px}
+.funder a.flink:hover{color:var(--ochre)}
+
+/* ---------- interview logistics ---------- */
+.venue{background:var(--ink);color:#EAF0EE;margin:1px 0 8px;padding:24px 26px 26px;position:relative;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.venue:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--ochre)}
+.venue .vk{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--jade);margin-bottom:9px}
+.venue .vt{font-family:var(--serif);font-size:21px;font-weight:600;color:#fff;line-height:1.25}
+.venue .vd{font-size:14px;color:#A8BDC1;margin-top:6px;line-height:1.5}
+.venue a.vlink{display:inline-block;margin-top:11px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#EAF0EE;border-bottom:1px solid var(--ochre);padding-bottom:2px}
+.venue a.vlink:hover{color:var(--ochre)}
+.venue ul{margin:0;padding-left:17px;font-size:14px;line-height:1.55;color:#C6D6D9}
+.venue ul li{margin-bottom:6px}
+.venue .vnote{font-size:12.5px;color:#8FA6AB;margin-top:10px;line-height:1.5}
+
+
+/* ---------- glossary ---------- */
+.gl{border-bottom:1px dotted var(--jade);cursor:help;text-decoration:none}
+.gl:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+#gl-pop{position:absolute;z-index:60;max-width:300px;background:var(--ink);color:#fff;padding:11px 13px 12px;font-size:13px;line-height:1.45;box-shadow:0 6px 24px rgba(14,36,48,.25);display:none}
+#gl-pop b{display:block;font-size:13.5px;margin-bottom:2px}
+#gl-pop .f{color:#DDE7E3}
+#gl-pop .n{color:#AFC3BC;font-size:12.5px;margin-top:4px}
+#gl-pop button{margin-top:8px;background:none;border:0;padding:0;color:#7FD3C4;font:inherit;font-size:12px;cursor:pointer;text-decoration:underline}
+#gl-tab{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:45;writing-mode:vertical-rl;background:var(--jade);color:#fff;border:0;padding:16px 9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:-2px 0 10px rgba(14,36,48,.15)}
+#gl-tab:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+#glossary{position:fixed;top:0;right:0;bottom:0;width:390px;max-width:92vw;z-index:50;background:var(--card);border-left:1px solid var(--rule);box-shadow:-8px 0 30px rgba(14,36,48,.12);transform:translateX(105%);transition:transform .22s ease;display:flex;flex-direction:column}
+#glossary.open{transform:none}
+#glossary .gh{padding:18px 20px 12px;border-bottom:1px solid var(--rule)}
+#glossary .gh h2{margin:0 0 4px;font-size:22px}
+#glossary .gh p{margin:0 0 10px;font-size:12.5px;color:var(--muted);line-height:1.45}
+#glossary .gh input{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--rule);font:inherit;font-size:14px}
+#glossary .gx{position:absolute;top:14px;right:14px;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer}
+#glossary .gb{overflow-y:auto;padding:6px 20px 30px;flex:1}
+#glossary h3{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);margin:18px 0 6px;font-weight:500}
+#glossary dl{margin:0}
+#glossary .ge{padding:8px 0;border-bottom:1px solid #EEF0EE}
+#glossary .ge.hit{background:#FFF7D6}
+#glossary dt{font-weight:600;font-size:14px}
+#glossary dd{margin:2px 0 0;font-size:13px;line-height:1.45;color:var(--ink-2,#2C3E46)}
+#glossary dd .n{display:block;color:var(--muted);font-size:12.5px}
+#glossary .none{font-size:13px;color:var(--muted);padding:12px 0;display:none}
+@media print{#gl-tab,#glossary,#gl-pop{display:none!important}.gl{border:0}}
+
+/* ---------- logistics grid ---------- */
+.logi{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 0 8px}
+.logi>div{background:var(--card);padding:18px 20px 20px}
+.logi .lk{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);margin-bottom:9px}
+.logi ul{margin:0;padding-left:17px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.logi li{margin-bottom:5px}
+.logi li b{font-weight:600;color:var(--ink)}
+.logi .ln{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.logi code{font-family:var(--mono);font-size:12px;background:#F2F4F2;padding:1px 4px}
+/* ---------- panel members ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.pgrid div{background:var(--card);padding:11px 14px 12px;font-size:13.5px;line-height:1.35}
+.pgrid b{display:block;font-weight:600;font-size:14px}
+.pgrid span{color:var(--muted);font-size:12.5px}
+.pgrid .chair b:after{content:" · Chair";font-family:var(--mono);font-size:10.5px;color:var(--ochre);font-weight:500;letter-spacing:.05em}
+.done-note{margin-top:14px;font-size:13.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--rule);padding:12px 16px}
+.done-note b{color:var(--jade)}
+.done-note ul{margin:6px 0 0;padding-left:18px;line-height:1.55}
+.done-note li{margin-bottom:4px}
+.done-note li b{color:var(--ink);font-weight:600}
+
+/* ---------- sections ---------- */
+section{padding:52px 0;border-top:1px solid var(--rule)}
+h2{font-family:var(--serif);font-size:27px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:14.5px;margin:0 0 26px;max-width:720px}
+h3{font-family:var(--sans);font-size:15px;font-weight:600;margin:0 0 6px}
+
+/* ---------- facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.facts div{background:var(--card);padding:16px 16px 18px}
+.facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:7px 0 0;font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15}
+.facts dd small{display:block;font-family:var(--sans);font-size:12.5px;font-weight:400;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* ---------- consortium ---------- */
+.partners{border:1px solid var(--rule);background:var(--card)}
+.partner{display:grid;grid-template-columns:64px 1.15fr 1fr 1.25fr;gap:18px;padding:16px 18px;border-bottom:1px solid var(--rule);align-items:start}
+.partner:last-child{border-bottom:0}
+.partner .tag{font-family:var(--mono);font-size:11px;color:#fff;background:var(--ink-2);padding:3px 0;text-align:center;letter-spacing:.06em}
+.partner .tag.hub{background:var(--jade)}
+.partner .who{font-weight:600;font-size:15px}
+.partner .who em{display:block;font-style:normal;font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+.partner .inst{font-size:14px;line-height:1.4}
+.partner .role{font-size:13.5px;color:var(--muted);line-height:1.45}
+.collabs{margin-top:16px;font-size:13.5px;color:var(--muted)}
+.collabs b{color:var(--ink);font-weight:600}
+
+/* ---------- phases + spine ---------- */
+.spine{border:1px solid var(--rule);background:var(--card);padding:24px 22px 18px;margin-bottom:26px}
+.spine .scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-bottom:10px;letter-spacing:.04em}
+.bars{position:relative}
+.bar{position:relative;height:34px;margin-bottom:6px;background:linear-gradient(90deg,var(--rule) 1px,transparent 1px) 0 0/ calc(100%/12) 100%}
+.fill{position:absolute;top:0;bottom:0;background:var(--ink-2);color:#fff;display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;transform-origin:left;}
+.fill.p1{background:#0F7A6C}
+.fill.p2{background:#1B3A47}
+.fill.p3{background:#B4531B}
+.fill.p4{background:#7A6A2E}
+.fill .m{font-family:var(--mono);font-size:10.5px;opacity:.8;margin-left:9px}
+.spine .note{font-size:12.5px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--rule)}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.phase{background:var(--card);padding:20px 18px 22px}
+.phase .no{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.phase h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:6px 0 10px}
+.phase ul{margin:0;padding-left:17px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.phase li{margin-bottom:5px}
+.phase .swatch{height:3px;width:38px;margin-bottom:14px}
+
+/* ---------- two-col ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.stack li{margin-bottom:9px;font-size:14.5px;line-height:1.5}
+.stack ul{margin:0;padding-left:18px}
+
+/* ---------- domains ---------- */
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--rule);font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:#F7F8F6}
+tr:last-child td{border-bottom:0}
+td.w{font-family:var(--serif);font-size:18px;font-weight:600;white-space:nowrap}
+td.lead{font-weight:600}
+td.lead em{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+
+/* ---------- open items ---------- */
+.open{border-left:3px solid var(--ochre);background:var(--card);padding:20px 22px;border-top:1px solid var(--rule);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.open ol{margin:0;padding-left:19px;font-size:14.5px;line-height:1.55}
+.open li{margin-bottom:8px}
+.open li b{font-weight:600}
+.owner{font-family:var(--mono);font-size:11px;color:var(--ochre);letter-spacing:.04em}
+
+/* ---------- documents ---------- */
+.featured{display:block;background:var(--ink);color:#EAF0EE;border:0;padding:26px 26px 28px;margin-bottom:1px}
+.featured:hover{background:#132D3A;border:0}
+.featured .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--jade)}
+.featured .t{font-family:var(--serif);font-size:25px;font-weight:600;margin:9px 0 8px;color:#fff}
+.featured .d{font-size:14px;color:#A8BDC1;max-width:620px;line-height:1.5}
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.doc{background:var(--card);padding:17px 18px 19px;border:0;display:block;color:var(--ink)}
+.doc:hover{background:#F7F8F6;border:0}
+.doc .n{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.doc .t{font-size:15px;font-weight:600;margin:6px 0 4px;line-height:1.3}
+.doc .d{font-size:13px;color:var(--muted);line-height:1.45;margin:5px 0 9px}
+.doc .k{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+.chip{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ochre);border:1px solid var(--ochre);padding:2px 6px;margin-top:8px}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#8FA6AB;padding:34px 0 44px;font-size:13px;line-height:1.6}
+footer b{color:#EAF0EE;font-weight:500}
+
+@media (max-width:860px){
+  .cols{grid-template-columns:1fr;gap:26px}
+  .path ol{grid-template-columns:1fr;gap:1px}
+  .venue{grid-template-columns:1fr;gap:22px;padding:20px 18px 22px}
+  .logi{grid-template-columns:1fr}
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .funder .fgrid{grid-template-columns:1fr}
+  .funder{padding:20px 18px}
+  .partner{grid-template-columns:56px 1fr;gap:10px 14px}
+  .partner .inst,.partner .role{grid-column:2}
+  .fill{font-size:11.5px;padding:0 8px}
+  .fill .m{display:none}
+}
+@media print{
+  nav{display:none}body{background:#fff}
+  section{page-break-inside:avoid}
+}
+@media (prefers-reduced-motion:no-preference){
+  .fill{animation:grow .7s cubic-bezier(.2,.8,.25,1) both}
+  .bar:nth-child(2) .fill{animation-delay:.08s}
+  .bar:nth-child(3) .fill{animation-delay:.16s}
+  .bar:nth-child(4) .fill{animation-delay:.24s}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div>
+      <div class="brand">DREAM<span>4</span>HEALTH</div>
+      <p class="fulltitle">Strengthening Health Systems Resilience in ASEAN: A Multi-Country Consortium to Reduce Research Waste and Improve Evidence-Based Interventions for Emotional Distress and Effective Self-Management in People Living with Diabetes Mellitus</p>
+    </div>
+    <div class="ref">
+      <div>APPLICATION <b>IA-0000000254</b></div>
+      <div>SEA DREAM 4 HEALTH · <b>WELLCOME / FCDO</b></div>
+      <div>LEAD <b>UNIVERSITI PUTRA MALAYSIA</b></div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#argument">The argument</a>
+  <a href="#consortium">Consortium</a>
+  <a href="#phases">Phases</a>
+  <a href="#outputs">Outputs</a>
+  <a href="#panel">Panel</a>
+  <a href="#open">Open items</a>
+  <a href="#documents">Documents</a>
+</div></nav>
+
+<div class="wrap hero">
+  <div class="eyebrow">Panel interview · Bangkok · Tuesday 13 October 2026 · 08:45 ICT</div>
+  <div class="count">
+    <div class="n" id="days">—</div>
+    <div class="lab">days to the panel<br>interview</div>
+  </div>
+  <p class="lede">Forty-five minutes in the room: five for introductions, fifteen for our presentation, twenty-five for questions. Up to five of us, one from each institution. The Panel scores every sub-domain afterwards, using the application, three Expert Reviewer assessments and what we say, so every answer must stay grounded in what we submitted.</p>
+
+  <div class="path">
+    <ol>
+      <li class="done"><div class="when">10 JUL 2026</div><div class="what">Full application submitted</div></li>
+      <li class="done"><div class="when">JUL – SEP 2026</div><div class="what">Peer review and cost challenge</div></li>
+      <li class="now"><div class="when">13 OCT 2026</div><div class="what">Panel interview, Bangkok</div><div class="where">Sethi Studio, Bangkok Marriott Hotel Sukhumvit · 08:45–09:30</div></li>
+      <li><div class="when">OCT – NOV 2026</div><div class="what">Detailed due diligence</div></li>
+      <li><div class="when">JAN 2027</div><div class="what">Indicative project start</div></li>
+    </ol>
+
+  </div>
+
+  <div class="venue">
+    <div>
+      <div class="vk">Where and when · Panel 2</div>
+      <div class="vt">Sethi Studio, 3rd Floor</div>
+      <div class="vd">Bangkok Marriott Hotel Sukhumvit<br>2 Sukhumvit Soi 57, Klongtan Nua, Watthana, Bangkok 10110</div>
+      <ul style="margin-top:12px">
+        <li><b style="color:#fff">Tuesday 13 October 2026</b>. Registration desk at 08:30; interview 08:45–09:30 (Bangkok time, UTC+7)</li>
+        <li>45 minutes: 5 introductions · 15 presentation · 25 questions. The Chair will not extend any stage</li>
+        <li>Once the presentation starts, late representatives are not admitted</li>
+      </ul>
+      <a class="vlink" href="https://maps.app.goo.gl/RcNQrkKn4q1qJALj7" target="_blank" rel="noopener">Google Maps ↗</a>
+      &nbsp;&nbsp;<a class="vlink" href="https://www.marriott.com/search/findHotels.mi?pageType=advanced&amp;searchType=InCity&amp;destinationAddress.latitude=13.72333&amp;destinationAddress.longitude=100.58048&amp;destinationAddress.destination=Bangkok+Marriott+Hotel+Sukhumvit" target="_blank" rel="noopener">Hotel ↗</a>
+    </div>
+    <div>
+      <div class="vk">What SEA DREAM covers</div>
+      <ul>
+        <li>One round-trip economy airfare, by the most direct and economical route</li>
+        <li>Airport transfers in Bangkok, arrival and departure</li>
+        <li>Two nights in a single room at the Marriott, with breakfast, lunch and dinner</li>
+      </ul>
+      <div class="vnote">SEA DREAM books flights and rooms from the registration details: do not book your own. Extra nights, upgrades and changes are not covered unless approved in writing in advance. Arrive on 12 October; check-in from 15:00, check-out by 12:00.</div>
+    </div>
+  </div>
+
+  <div class="logi">
+    <div>
+      <div class="lk">Key dates</div>
+      <ul>
+        <li><b>2 Oct</b> · Expert Reviewer points for clarification, if any, arrive by email</li>
+        <li><b>5 Oct</b> · Panel bios published on sea-dream.org</li>
+        <li><b>6 Oct</b> · Our deck goes to SEA DREAM (deadline <b>7 Oct</b>): <a href="mailto:interview@sea-dream.org">interview@sea-dream.org</a>, copying <a href="mailto:wutyi@sea-dream.org">wutyi@sea-dream.org</a>, subject <code>D4H Interview_IA-0000000254</code></li>
+        <li><b>12 Oct</b> · Arrive Bangkok</li>
+        <li><b>13 Oct</b> · Interview, 08:45</li>
+        <li><b>Dec 2026</b> · Funding decisions; due diligence for shortlisted proposals</li>
+      </ul>
+    </div>
+    <div>
+      <div class="lk">Before you fly</div>
+      <ul>
+        <li>Passport valid at least six months from arrival. Check the visa rule for your nationality, and ask the Secretariat early if you need an invitation letter</li>
+        <li>Complete the Thailand Digital Arrival Card (TDAC) online within the three days before arrival. It is free and does not replace a visa</li>
+        <li>Immigration may ask for proof of funds: THB 10,000–20,000 per person depending on entry category</li>
+        <li>Suvarnabhumi: the hotel's representative waits with a signboard at <b>Exit / Gate 5</b>, Arrival Hall. Don Mueang: the Secretariat sends pickup details. Hotel: +66 2 797 0000</li>
+      </ul>
+    </div>
+    <div>
+      <div class="lk">Who attends, and on the day</div>
+      <ul>
+        <li>Up to five representatives, one per organisation, pre-approved by SEA DREAM. No substitutions without approval; remote joining is possible if agreed early. Dr Lau, our external collaborators and the new Myanmar team members cannot attend as representatives</li>
+        <li>Bring laptop, charger and adapter (220 V; Type A, B, C, O). SEA DREAM displays our slides and provides a clicker; animations may not play</li>
+        <li>No handouts, props, photos or video. The room is strongly air-conditioned</li>
+        <li>Prayer room: Benchasiri 4, 4th floor. Coffee cart: outside Sethi, 3rd floor</li>
+      </ul>
+    </div>
+    <div>
+      <div class="lk">Contacts</div>
+      <ul>
+        <li><b>On the day, Panel 2:</b> Ms Nwe Nwe Tun · <a href="mailto:nwenwe@sea-dream.org">nwenwe@sea-dream.org</a></li>
+        <li><b>General enquiries:</b> Dr Wut Yi Soe, Senior Grants Manager · <a href="mailto:wutyi@sea-dream.org">wutyi@sea-dream.org</a></li>
+        <li><b>Logistics:</b> Ms Siriporn Prasopboon · <a href="mailto:siriporn@sea-dream.org">siriporn@sea-dream.org</a> · WhatsApp +66 81 918 8505</li>
+        <li><b>Proposal, interview, registration:</b> <a href="mailto:grants@sea-dream.org">grants@sea-dream.org</a></li>
+      </ul>
+      <div class="ln">Quote IA-0000000254, your full name and 13 October in every message.</div>
+    </div>
+  </div>
+
+</div>
+
+<section id="argument"><div class="wrap">
+  <h2>The argument, in one paragraph</h2>
+  <p class="sub">Every member should be able to give this in under a minute. It is the answer to the most likely structural challenge: “isn’t this two projects?”</p>
+  <div class="cols">
+    <div>
+      <p style="font-family:var(--serif);font-size:17.5px;line-height:1.65;margin:0">Effective psychosocial interventions for diabetes distress already exist in the literature. ASEAN health systems still do not scale them, and the reason is evidential: the regional evidence base is fragmented, largely unregistered, inconsistently reported, rarely replicated, and almost never contextualised to the settings where care is delivered. Ministries cannot act on it.</p>
+    </div>
+    <div>
+      <p style="font-family:var(--serif);font-size:17.5px;line-height:1.65;margin:0">So we do two things at once. We generate one high-quality, pre-registered, culturally co-designed multi-country trial — and we build the regional machinery that makes such trials repeatable after we finish. The trial is the demonstration case; the ecosystem work is what makes it generalise. Fund only the trial and the region gets one more result it cannot use. Fund only the ecosystem work and you have infrastructure with nothing running through it.</p>
+    </div>
+  </div>
+
+  <dl class="facts" style="margin-top:34px">
+    <div><dt>Budget</dt><dd>USD 6,098,195.50<small>Budget Estimate v10 total · 60 months from January 2027</small></dd></div>
+    <div><dt>Institutions</dt><dd>5<small>Hub plus four consortium members</small></dd></div>
+    <div><dt>Fellowships</dt><dd>19<small>6 PhD · 6 postdoctoral · 7 Research Coordinator</small></dd></div>
+    <div><dt>Definitive RCT</dt><dd>n = 424<small>Two-arm pragmatic trial, five countries, M38–52</small></dd></div>
+    <div><dt>Primary outcome</dt><dd>DDS-17<small>Total mean score at 12 months; 6 months secondary</small></dd></div>
+    <div><dt>Pilot RCT</dt><dd>n = 180<small>Myanmar, Philippines, Indonesia · M31–34</small></dd></div>
+  </dl>
+</div></section>
+
+<section id="consortium"><div class="wrap">
+  <h2>Consortium</h2>
+  <p class="sub">Each partner leads a strand. Roles now follow the submitted application’s statement of each member’s distinct contribution, as mapped in the Distributed Responsibilities Plan. If your entry is wrong, tell the Hub before we rehearse.</p>
+  <div class="partners">
+    <div class="partner">
+      <div class="tag hub">HUB</div>
+      <div class="who">Prof. Dr Boon-How Chew<em>Principal Investigator</em></div>
+      <div class="inst">Universiti Putra Malaysia<br><span style="color:var(--muted);font-size:12.5px">Malaysia</span></div>
+      <div class="role">Scientific coordination and governance; digital readiness assessment (Strand 1B); Digital VEMOFIT platform; initial RQRA secretariat; Track A. Deputy PI: Dr Lau Hung Chiun.</div>
+    </div>
+    <div class="partner">
+      <div class="tag">CM-1</div>
+      <div class="who">Prof. Dr Indah S. Widyahening<em>Co-Principal Investigator</em></div>
+      <div class="inst">Universitas Indonesia<br><span style="color:var(--muted);font-size:12.5px">Indonesia</span></div>
+      <div class="role">REALQUAMI-extended research-quality review (Strand 1A); Track A in Indonesia with Prolanis data (provisional); pilot trial site.</div>
+    </div>
+    <div class="partner">
+      <div class="tag">CM-2</div>
+      <div class="who">Prof. Dr Ngiap-Chuan Tan<em>Co-Principal Investigator</em></div>
+      <div class="inst">SingHealth Polyclinics / Duke-NUS<br><span style="color:var(--muted);font-size:12.5px">Singapore</span></div>
+      <div class="role">Track A longitudinal modelling and explainable AI; AI governance of the companion (ETEPAI); link to the ASEAN Primary Care Research Excellence Framework.</div>
+    </div>
+    <div class="partner">
+      <div class="tag">CM-3</div>
+      <div class="who">A/Prof. Dr Tin Myo Han<em>Co-Principal Investigator</em></div>
+      <div class="inst">Myanmar General Practitioners’ Society<br><span style="color:var(--muted);font-size:12.5px">Myanmar</span></div>
+      <div class="role">Track B registries at two clinical sites, with primary data ownership; primary care network delivery; pilot trial site. Research team now includes Dr Ohnmar (Research Scientist, Department of Medical Research (Lower Myanmar)) and Dr Mya Win Hnit.</div>
+    </div>
+    <div class="partner">
+      <div class="tag">CM-4</div>
+      <div class="who">Prof. Dr Leilanie Apostol-Nicodemus<em>Co-Principal Investigator</em></div>
+      <div class="inst">University of the Philippines College of Medicine<br><span style="color:var(--muted);font-size:12.5px">Philippines</span></div>
+      <div class="role">Track B registries at two clinical sites, with primary data ownership; WONCA Asia Pacific network; pilot trial site.</div>
+    </div>
+  </div>
+  <p class="collabs"><b>External collaborators:</b> Prof. Sang Min Park (Seoul National University, Republic of Korea) · A/Prof. Kee Yuan Ngiam (NUS / NUHS, Singapore) · Djoko Priyono (Tanjungpura University, Indonesia)</p>
+</div></section>
+
+<section id="phases"><div class="wrap">
+  <h2>Four phases across sixty months</h2>
+  <p class="sub">Phases 3 and 4 overlap deliberately: sustainability work begins while validation is still running, so the Alliance and the clinics exist before the trial reports rather than after the money ends.</p>
+
+  <div class="spine">
+    <div class="scale"><span>M1</span><span>M12</span><span>M24</span><span>M36</span><span>M48</span><span>M60</span></div>
+    <div class="bars">
+      <div class="bar"><div class="fill p1" style="left:0%;width:20%">Foundation<span class="m">M1–12</span></div></div>
+      <div class="bar"><div class="fill p2" style="left:20%;width:20%">Discovery<span class="m">M13–24</span></div></div>
+      <div class="bar"><div class="fill p3" style="left:40%;width:43.33%">Validation<span class="m">M25–50</span></div></div>
+      <div class="bar"><div class="fill p4" style="left:58.33%;width:41.67%">Scaling and sustainability<span class="m">M36–60</span></div></div>
+    </div>
+    <p class="note">Pilot RCT pre-registered M30, conducted M31–34, results M36. Definitive RCT pre-registered M36, conducted M38–52, results M54, inside the Phase 4 overlap. Ethics approval across five jurisdictions is the principal critical-path risk.</p>
+  </div>
+
+  <div class="phases">
+    <div class="phase">
+      <div class="swatch" style="background:#0F7A6C"></div>
+      <div class="no">PHASE 1 · M1–12</div>
+      <h3>Foundation</h3>
+      <ul>
+        <li>ASEAN research landscape and baseline audit</li>
+        <li>REALQUAMI-extended systematic review of methodological quality</li>
+        <li>Digital readiness assessment at all five sites; tracks confirmed at M15</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="swatch" style="background:#1B3A47"></div>
+      <div class="no">PHASE 2 · M13–24</div>
+      <h3>Discovery</h3>
+      <ul>
+        <li><b>Track A</b> — big data, epidemiologic modelling, XAI/SHAP; provisionally Malaysia, Singapore, Indonesia</li>
+        <li><b>Track B</b> — digital research registries at two clinical sites each in Myanmar and the Philippines</li>
+        <li>Both tracks converge at M24 to set Phase 3 priorities</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="swatch" style="background:#B4531B"></div>
+      <div class="no">PHASE 3 · M25–50</div>
+      <h3>Validation</h3>
+      <ul>
+        <li>Cultural co-design with Lived Experience Advisory Boards</li>
+        <li>Component A: nurse-delivered Enhanced Attention</li>
+        <li>Component B: AI companion application</li>
+        <li>Pilot RCT (n = 180), then definitive two-arm pragmatic RCT (n = 424)</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="swatch" style="background:#7A6A2E"></div>
+      <div class="no">PHASE 4 · M36–60</div>
+      <h3>Scaling and sustainability</h3>
+      <ul>
+        <li>Regional Quality Research Alliance constituted at M54</li>
+        <li>Five Research Consultation Clinics embedded by M57</li>
+        <li>Biased Research Prevention Plan published at M42</li>
+        <li>Six policy briefs and five national policy dialogues</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="outputs"><div class="wrap">
+  <h2>What we produce, and what survives</h2>
+  <p class="sub">The second column is the sustainability answer. “We will seek further funding” scores badly; named hosts and documented institutional commitments do not.</p>
+  <div class="cols">
+    <div class="stack">
+      <h3 style="font-family:var(--serif);font-size:18px;margin-bottom:12px">Outputs during the grant</h3>
+      <ul>
+        <li>REALQUAMI-extended systematic review of regional research quality</li>
+        <li>Digital readiness assessment across five health systems</li>
+        <li>Explainable risk models for persistent diabetes distress, developed to TRIPOD</li>
+        <li>Digital research registries at two clinical sites each in Myanmar and the Philippines</li>
+        <li>Culturally adapted psychosocial intervention, co-designed with people living with diabetes</li>
+        <li>Pre-registered pilot and definitive trial protocols, published before results</li>
+        <li>Biased Research Prevention Plan, openly licensed</li>
+        <li>Six policy briefs: one per country plus the ASEAN Secretariat</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h3 style="font-family:var(--serif);font-size:18px;margin-bottom:12px">What remains after month 60</h3>
+      <ul>
+        <li><b>Regional Quality Research Alliance</b> — the sustainability mechanism. UPM hosts the first secretariat, with rotation; after 2031 it runs on membership fees, consultancy and symposium revenue</li>
+        <li><b>Five Research Consultation Clinics</b> — one at every partner, operating from M18, for protocol development, peer review, reporting and mentorship</li>
+        <li><b>Nineteen researchers</b> — 6 PhD, 6 postdoctoral and 7 Research Coordinator fellows; six of the seven coordinators sit outside the Hub</li>
+        <li><b>Reusable tools</b> — assessment instruments, open protocols, reporting templates, bias-prevention resources</li>
+        <li><b>Registries</b> — owned by the institutions that built them, usable for research not yet imagined</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="panel"><div class="wrap">
+  <div class="funder">
+    <div class="fk">Who is asking</div>
+    <h3>SEA DREAM — Developing Research Excellence and Mentorship In Southeast Asia</h3>
+    <p>Implemented by the SEAMEO Secretariat in strategic partnership with Wellcome and the UK Foreign, Commonwealth and Development Office. It funds Southeast Asian–led regional consortia working on national and regional health priorities, and states four objectives: generating impactful research, nurturing leadership, fostering regional collaboration, and strengthening research ecosystems. Those four are the first four rows of the table below — the domains are the funder's own objectives, not a scoring rubric invented for the panel.</p>
+    <a class="flink" href="https://sea-dream.org/about/about-sea-dream" target="_blank" rel="noopener">About SEA DREAM ↗</a>
+    <div class="fgrid">
+      <div>
+        <div class="fl">This call</div>
+        <div class="fv">DREAM 4 Health 2026. Four topics: infectious diseases, climate and health, mental health, health systems and access to care. We sit across the last two.</div>
+      </div>
+      <div>
+        <div class="fl">Who may lead</div>
+        <div class="fv">Not-for-profit institutions in the eleven eligible Southeast Asian countries. Particular emphasis on engaging institutions from lower-middle-income countries.</div>
+      </div>
+      <div>
+        <div class="fl">Outside the region</div>
+        <div class="fv">Global partnerships within a consortium are supported — which is the basis for our Republic of Korea collaborator.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:34px">How the panel scores us</h2>
+  <p class="sub">Same five weighted domains as peer review. Half the marks sit in impact and equitable collaboration; only a tenth sits in our qualifications. This is why speaking time is allocated rather than left to chance — the panel watches who answers.</p>
+  <table>
+    <thead><tr><th style="width:34%">Domain</th><th style="width:9%">Weight</th><th style="width:26%">Answers first</th><th>Adds detail</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Generating impactful research</td><td class="w">25%</td><td class="lead">Boon-How Chew<em>Principal Investigator</em></td><td>Ngiap-Chuan Tan</td></tr>
+      <tr><td>2 · Nurturing research leadership and talent</td><td class="w">20%</td><td class="lead">Leilanie Apostol-Nicodemus<em>UP College of Medicine</em></td><td>Indah Widyahening</td></tr>
+      <tr><td>3 · Fostering regional collaboration and governance</td><td class="w">25%</td><td class="lead">Tin Myo Han<em>Myanmar GPS</em></td><td>Leilanie Apostol-Nicodemus</td></tr>
+      <tr><td>4 · Strengthening research ecosystems</td><td class="w">20%</td><td class="lead">Indah Widyahening<em>Universitas Indonesia</em></td><td>Tin Myo Han</td></tr>
+      <tr><td>5 · Qualifications and operational feasibility</td><td class="w">10%</td><td class="lead">Boon-How Chew<em>with Deputy PI briefing</em></td><td>Ngiap-Chuan Tan</td></tr>
+    </tbody>
+  </table>
+  <p class="sub" style="margin-top:18px;margin-bottom:0">Target speaking share in Q&amp;A: PI 30–35%, each Co-PI 15–18%. No single answer longer than 90 seconds. Full question sets, drafted answers and the rules of the room are in the preparation pack.</p>
+
+  <h2 style="margin-top:34px">Presentation running order, 15 minutes</h2>
+  <p class="sub"><a href="https://docs.google.com/presentation/d/1297yN2_GOCsgoqC7fLCSdK2E1AkQ1DIT/edit?usp=sharing&amp;ouid=108300367172666668375&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Twelve slides in SEA DREAM’s template</a> (featured under Documents). Each speaker presents the domain they answer first in Q&amp;A. The initials match the tag in the top-right corner of each slide. The clock ends at about 13:15, leaving time for five handovers.</p>
+  <table>
+    <thead><tr><th style="width:30%">Speaker</th><th>Slides</th><th style="width:14%">Time</th></tr></thead>
+    <tbody>
+      <tr><td class="lead">Boon-How Chew <em>BHC</em></td><td>The two connected problems; the four-phase programme</td><td>1:50</td></tr>
+      <tr><td class="lead">Ngiap-Chuan Tan <em>NCT</em></td><td>Phases 1–2 and the two tracks; Phase 3 trial design and safety</td><td>2:25</td></tr>
+      <tr><td class="lead">Tin Myo Han <em>TMH</em></td><td>Five partners; governance and data ownership</td><td>2:10</td></tr>
+      <tr><td class="lead">Leilanie Apostol-Nicodemus <em>LAN</em></td><td>19 fellowships and the training ladder</td><td>1:35</td></tr>
+      <tr><td class="lead">Indah Widyahening <em>ISW</em></td><td>What remains after 2031; equity, ethics and data; the path to policy</td><td>2:45</td></tr>
+      <tr><td class="lead">Boon-How Chew <em>BHC</em></td><td>Feasibility, risks and what has changed since submission; close</td><td>1:40</td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top:34px">Who is on Panel 2</h2>
+  <p class="sub">Sixteen members. Bios are published on sea-dream.org by 5 October. The mix leans towards health systems, research capacity, ethics, evaluation and law, so expect Domains 2 to 4 to be probed hard. Do not contact any panel member before the funding decision.</p>
+  <div class="pgrid">
+    <div class="chair"><b>Julia Gohlke</b><span>Virginia-Maryland College of Veterinary Medicine, Virginia Tech</span></div>
+    <div><b>Catherine Ong</b><span>National University of Singapore</span></div>
+    <div><b>Thava Palanisami</b><span>University of Newcastle</span></div>
+    <div><b>Alessandro Massazza</b><span>United for Global Mental Health</span></div>
+    <div><b>Grace Wangge</b><span>Monash University Indonesia</span></div>
+    <div><b>Dina Balabanova</b><span>London School of Hygiene &amp; Tropical Medicine</span></div>
+    <div><b>I Gusti Ngurah Kade Mahardika</b><span>Faculty of Veterinary Medicine, Udayana University</span></div>
+    <div><b>Jenyuk Lohwacharin</b><span>Chulalongkorn University</span></div>
+    <div><b>Bounpheng Philavong</b><span>Health Professional Council of Lao PDR, Medical Professional Board</span></div>
+    <div><b>Sam Kinyanjui</b><span>KEMRI-Wellcome Trust Research Programme</span></div>
+    <div><b>Phaik Yeong Cheah</b><span>Mahidol Oxford Tropical Medicine Research Unit (MORU)</span></div>
+    <div><b>Angela Kelly-Hanku</b><span>Kirby Institute, University of New South Wales</span></div>
+    <div><b>Brad Astbury</b><span>University of Melbourne</span></div>
+    <div><b>Nadia Tagoe</b><span>KNUST School of Public Health</span></div>
+    <div><b>Muhammad Firdaus bin Abdul Aziz</b><span>Faculty of Law, Universiti Malaya</span></div>
+    <div><b>Hani Kim</b><span>Health Collaboratory</span></div>
+  </div>
+</div></section>
+
+<section id="open"><div class="wrap">
+  <h2>Open items before Bangkok</h2>
+  <p class="sub">Only items that still need action or attention are listed. Expert Reviewer comments arrive by 2 October. Return your items to the Hub by <b>Monday 5 October 2026</b>; the deck goes to SEA DREAM on 6 October, a day before the deadline.</p>
+  <div class="open">
+    <ol>
+      <li><b>Expert Reviewer comments (due 2 October).</b> Read them the day they arrive; each domain owner drafts a one-line answer, and the Hub adjusts the deck by 5 October. <span class="owner">PI; each domain owner</span></li>
+      <li><b>Site escalation protocol for the AI companion.</b> Use one template for all five sites: a positive PHQ-9 item 9 or crisis language in the app triggers same-day contact by a named site clinician; a local crisis line is always visible in the app; if no one is reachable, the app directs to emergency services; every event is logged and reviewed by the DSMC. Each site fills in the recipient, response time and hours of cover. On the panel, say it is required before M36 registration, not that it is in place. <span class="owner">PI with all sites; Tan for AI governance</span></li>
+      <li><b>Philippines trial-delivery staffing.</b> Proposed resolution: a 0.6 FTE Field Coordinator for Years 3–5, mirroring Myanmar, raised at due diligence; until then the Site Project Manager covers field coordination. Confirm UP can support this. <span class="owner">Apostol-Nicodemus with PI</span></li>
+      <li><b>Definitive trial recruitment window.</b> With a 12-month primary endpoint and follow-up ending M52, the last participant is randomised by about M40: roughly 85 per country over three months, staggered, Track A sites first. Each site confirms it can reach its target. <span class="owner">All sites; Trial Coordinator, UPM</span></li>
+      <li><b>Research Consultation Clinic commitments.</b> A short written commitment from each of the five host institutions, naming who gave it and their position. <span class="owner">All sites</span></li>
+      <li><b>Myanmar team details.</b> Dr Mya Win Hnit’s affiliation and role. Tell SEA DREAM about both additions at due diligence. <span class="owner">Tin Myo Han</span></li>
+      <li><b>Organisational structure PDF (card 07).</b> Correct to 19 fellowships (6 PhD, 6 postdoctoral, 7 Research Coordinator) and five Research Consultation Clinics, then re-upload. <span class="owner">Hub</span></li>
+      <li><b>DNeX coverage.</b> Written confirmation that the sovereign-cloud arrangement covers all five countries’ data flows. <span class="owner">Hub</span></li>
+      <li><b>Philippines Co-PI CV.</b> An up-to-date CV for the portal record ahead of due diligence. <span class="owner">Apostol-Nicodemus</span></li>
+    </ol>
+  </div>
+  <div class="done-note"><b>Settled: use these answers.</b>
+    <ul>
+      <li><b>Budget:</b> USD 6,098,195.50, the Budget Estimate v10 total. The portal recorded USD 6,097,595 on 13 July; the USD 600 gap is SingHealth’s Year 1 overhead (v10 USD 11,600, portal USD 11,000), to be reconciled at due diligence.</li>
+      <li><b>Primary outcome:</b> DDS-17 at 12 months, as in most passages of the application; 6 months is a secondary timepoint.</li>
+      <li><b>Trial arms:</b> six digital modules, a bounded AI companion and coordinator contact, against usual care plus a written psychoeducational leaflet.</li>
+      <li><b>Consent:</b> taking part in the trial is never conditional on agreeing to secondary data use; that is a separate, optional consent. The contradictory passage is corrected at due diligence.</li>
+      <li><b>Tracks:</b> Track A provisionally Malaysia, Singapore and Indonesia; Track B Myanmar and the Philippines; confirmed at the M15 gate.</li>
+      <li><b>Track B platform:</b> REDCap, as submitted. Any Data4Life quotation is a due-diligence option, not a change.</li>
+      <li><b>Titles:</b> A/Prof. Dr Tin Myo Han (Assistant Professor). Djoko Priyono, Tanjungpura University, is a collaborator in the submitted proposal.</li>
+      <li><b>Research Office approval:</b> complete. The portal does not accept a submission without it, and the application has been shortlisted.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="documents"><div class="wrap">
+  <h2>Documents</h2>
+  <p class="sub">Everything below opens in Google Drive. If a link does not open for you, tell the Hub — access is granted per person, not per consortium.</p>
+
+  <a class="featured" href="https://docs.google.com/document/d/1B4_KBjosnXR1qWjYJgE9vmZYzZXroV7q/edit?usp=sharing&amp;ouid=108300367172666668375&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">
+    <div class="kicker">Read this first</div>
+    <div class="t">Panel Interview Preparation Pack</div>
+    <div class="d">Domain ownership, speaking-time protocol, run of show, five individual briefs with expected questions and drafted answers, red-team question bank, evidence checklist and preparation timeline. Editable — please track your changes.</div>
+  </a>
+
+  <a class="featured" href="https://docs.google.com/presentation/d/1297yN2_GOCsgoqC7fLCSdK2E1AkQ1DIT/edit?usp=sharing&amp;ouid=108300367172666668375&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">
+    <div class="kicker">Rehearse from this</div>
+    <div class="t">Panel Presentation — 12 slides, SEA DREAM template</div>
+    <div class="d">The 15-minute deck we present on 13 October. Each slide carries the presenter’s initials in the top-right corner; speaker notes hold the timed script, sources and likely questions. Google Slides view of the PowerPoint file.</div>
+  </a>
+
+  <div class="docs">
+
+    <a class="doc" href="https://drive.google.com/file/d/1pn-hd_Aq8D2LNIihc7Vu72n1D6uGQrud/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="n">01</div>
+      <div class="t">Full Application</div>
+      <div class="d">The submitted proposal, IA-0000000254. The governing document — where anything disagrees with this page, this wins.</div>
+      <div class="k">PDF</div>
+    </a>
+
+    <a class="doc" href="https://docs.google.com/spreadsheets/d/1g-l12myT7DWfSaJswMPiOop4fgtqyPkP/edit?usp=sharing&amp;ouid=108300367172666668375&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">
+      <div class="n">02</div>
+      <div class="t">Project Timeline and Gantt Chart</div>
+      <div class="d">Month-by-month activity schedule across the four phases. Check any date you plan to quote against this before the panel.</div>
+      <div class="k">Spreadsheet</div>
+    </a>
+
+    <a class="doc" href="https://drive.google.com/file/d/1gRW5nIESG2aJOPBVqSYmmqh1Z4yTMOXW/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="n">03</div>
+      <div class="t">Research Infrastructure Technical Note</div>
+      <div class="d">Data platforms, registries, hosting and governance. Background for questions on cross-border data flow and platform costs.</div>
+      <div class="k">PDF</div>
+    </a>
+
+    <a class="doc" href="https://drive.google.com/file/d/1sK9jUytQEYh6D1L0YcdvNrgzfd2KELkg/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="n">04</div>
+      <div class="t">Theory of Change</div>
+      <div class="d">The causal logic from activities to impact, and the assumptions it rests on. Underpins the one-paragraph argument above.</div>
+      <div class="k">PDF</div>
+    </a>
+
+    <a class="doc" href="https://drive.google.com/file/d/18UXrGFkr61p7PEF9Y_Vx8wx1Ov8QDly_/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="n">05</div>
+      <div class="t">Monitoring, Evaluation and Learning Logframe</div>
+      <div class="d">Outputs, outcomes and indicators. Any EDI or capacity figure quoted to the panel must be traceable to this.</div>
+      <div class="k">PDF</div>
+    </a>
+
+    <a class="doc" href="https://drive.google.com/file/d/1XmpDfnFQ7zLKldA8Zh4DidVr_8j01pJg/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="n">06</div>
+      <div class="t">Project Risk Register</div>
+      <div class="d">Identified risks, likelihood, impact and mitigation. Read your own site's rows before the rehearsal.</div>
+      <div class="k">PDF</div>
+    </a>
+
+    <a class="doc" href="https://drive.google.com/file/d/1IbQ25HjFSB4sWoAHHJreK3cOkiFLbgE4/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="n">07</div>
+      <div class="t">Research Management and Staffing Structure</div>
+      <div class="d">Governance leadership, the Hub management team, the four site nodes and the Research Consultation Clinics Network, with the FTE attached to every grant-funded post. The factual anchor for questions about who does what.</div>
+      <div class="k">PDF</div>
+    </a>
+
+    <a class="doc" href="https://docs.google.com/presentation/d/1aNXFl3bayUVhhgMP_ynwdOu8KghHVSLB/edit?usp=sharing&amp;ouid=108300367172666668375&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">
+      <div class="n">08</div>
+      <div class="t">Panel Deck — Working Draft (source material)</div>
+      <div class="d">Source deck with numbered citations and speaker-note caveats. The 15-minute presentation sent to SEA DREAM is the separate 12-slide deck in the funder’s template.</div>
+      <div class="k">Google Slides</div>
+    </a>
+
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <b>Internal working document — not for circulation outside the consortium.</b><br>
+  Updated 29 September 2026 with SEA DREAM’s interview confirmation. Figures and roles follow the application submitted on 10 July 2026 and may change during cost challenge and due diligence. Where this page and the submitted application disagree, the application governs. Corrections to the Hub, UPM.
+</div></footer>
+
+<script>
+(function(){
+  // Anchored to Indochina Time (UTC+7), where the interview happens, so Co-PIs in
+  // Manila (UTC+8) and Yangon (UTC+6:30) see the same number on the same evening.
+  var ICT = 7 * 3600000;
+  var DAY = Date.UTC(2026, 9, 13);                  // 13 October 2026, ICT calendar day
+  var START = Date.UTC(2026, 9, 13, 1, 45);         // 08:45 ICT
+  var END = Date.UTC(2026, 9, 13, 2, 30);           // 09:30 ICT
+
+  var el = document.getElementById('days');
+  var lab = document.querySelector('.count .lab');
+  if (!el || !lab) return;
+
+  function ictDay(ms){ return Math.floor((ms + ICT) / 86400000) * 86400000; }
+  function set(n, l, small){
+    el.textContent = n;
+    el.style.fontSize = small ? 'clamp(40px,8vw,72px)' : '';
+    lab.innerHTML = l;
+  }
+
+  function render(){
+    var now = Date.now();
+    var d = Math.round((DAY - ictDay(now)) / 86400000);
+    if (d > 1)            set(d, 'days to the panel<br>interview');
+    else if (d === 1)     set('1', 'day to the panel<br>interview · 08:45 ICT');
+    else if (d === 0 && now < START) set('Today', '08:45 ICT · Sethi Studio<br>registration at 08:30', true);
+    else if (d === 0 && now < END)   set('Now', 'in the interview room<br>until 09:30 ICT', true);
+    else                  set('\u2014', 'Panel interview held<br>13 October 2026');
+    return d;
+  }
+
+  render();
+  // Re-check every minute and when the tab regains focus, so the page stays
+  // correct if left open overnight or reopened days later.
+  setInterval(render, 60000);
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) render(); });
+})();
+</script>
+
+<button id="gl-tab" type="button" aria-controls="glossary" aria-expanded="false">Glossary</button>
+<aside id="glossary" aria-label="Glossary" aria-hidden="true">
+  <button class="gx" type="button" aria-label="Close glossary">×</button>
+  <div class="gh">
+    <h2>Glossary</h2>
+    <p>Every abbreviation on the panel deck, plus those used on this page. Dotted terms on the page show their meaning on hover or tap.</p>
+    <input type="search" id="gl-q" placeholder="Search, e.g. DSMC or distress" aria-label="Search the glossary">
+  </div>
+  <div class="gb" id="gl-body"></div>
+</aside>
+<div id="gl-pop" role="tooltip"></div>
+
+<script>
+(function(){
+  var G = [{"g": "Consortium and organisations", "k": ["ASEAN"], "l": "ASEAN", "f": "Association of Southeast Asian Nations", "n": "11 member states since Timor-Leste joined in October 2025"}, {"g": "Consortium and organisations", "k": ["SEA DREAM"], "l": "SEA DREAM", "f": "Developing Research Excellence and Mentorship in Southeast Asia", "n": "The funder's programme, run by the SEAMEO Secretariat with Wellcome and UK FCDO"}, {"g": "Consortium and organisations", "k": ["DREAM4HEALTH"], "l": "DREAM4HEALTH", "f": "Project working name", "n": "Not the same as DREAM 4 Health, the funder's call"}, {"g": "Consortium and organisations", "k": ["IA-0000000254"], "l": "IA-0000000254", "f": "Application number", "n": "Our SEA DREAM application ID"}, {"g": "Consortium and organisations", "k": ["Co-PIs", "Co-PI", "PIs", "PI"], "l": "PI / Co-PI", "f": "Principal Investigator / Co-Principal Investigator", "n": "PI is Prof. Chew; one Co-PI per partner"}, {"g": "Consortium and organisations", "k": ["BHC"], "l": "BHC", "f": "Presenter initials", "n": "Prof. Boon-How Chew, UPM"}, {"g": "Consortium and organisations", "k": ["NCT"], "l": "NCT", "f": "Presenter initials", "n": "Prof. Ngiap-Chuan Tan, SingHealth / Duke-NUS"}, {"g": "Consortium and organisations", "k": ["TMH"], "l": "TMH", "f": "Presenter initials", "n": "A/Prof. Dr. Tin Myo Han, Myanmar GPs' Society"}, {"g": "Consortium and organisations", "k": ["LAN"], "l": "LAN", "f": "Presenter initials", "n": "Prof. Leilanie Apostol-Nicodemus, UP College of Medicine"}, {"g": "Consortium and organisations", "k": ["ISW"], "l": "ISW", "f": "Presenter initials", "n": "Prof. Indah S. Widyahening, Universitas Indonesia"}, {"g": "Consortium and organisations", "k": ["CM-1", "CM-2", "CM-3", "CM-4"], "l": "CM-1 to CM-4", "f": "Consortium Member 1 to 4", "n": "CM-1 Universitas Indonesia, CM-2 SingHealth, CM-3 Myanmar GPs' Society, CM-4 UP"}, {"g": "Consortium and organisations", "k": ["UPM"], "l": "UPM", "f": "Universiti Putra Malaysia", "n": "The Hub (lead organisation)"}, {"g": "Consortium and organisations", "k": ["UP"], "l": "UP", "f": "University of the Philippines", "n": "UP College of Medicine is CM-4"}, {"g": "Consortium and organisations", "k": ["SingHealth"], "l": "SingHealth", "f": "Singapore Health Services", "n": "SingHealth Polyclinics is CM-2"}, {"g": "Consortium and organisations", "k": ["Duke-NUS"], "l": "Duke-NUS", "f": "Duke-NUS Medical School", "n": "Joint medical school of Duke University and NUS"}, {"g": "Consortium and organisations", "k": ["NUS"], "l": "NUS", "f": "National University of Singapore", "n": "Home of external collaborator A/Prof. Kee Yuan Ngiam"}, {"g": "Consortium and organisations", "k": ["NUHS"], "l": "NUHS", "f": "National University Health System", "n": "Singapore health system linked to NUS"}, {"g": "Consortium and organisations", "k": ["GPs", "GP"], "l": "GP", "f": "General practitioner", "n": "As in Myanmar General Practitioners' Society"}, {"g": "Consortium and organisations", "k": ["WONCA"], "l": "WONCA", "f": "World Organization of Family Doctors", "n": "Its Asia Pacific network is reached through UP"}, {"g": "Consortium and organisations", "k": ["LMICs", "LMIC"], "l": "LMIC", "f": "Low- and middle-income country", "n": "World Bank income groups"}, {"g": "Consortium and organisations", "k": ["PhD"], "l": "PhD", "f": "Doctor of Philosophy", "n": "6 PhD fellowships"}, {"g": "Consortium and organisations", "k": ["USD"], "l": "USD", "f": "United States dollar", "n": "All budget figures"}, {"g": "Research design, governance and data", "k": ["RCTs", "RCT"], "l": "RCT", "f": "Randomised controlled trial", "n": "Pilot (n = 180) and definitive (n = 424) trials"}, {"g": "Research design, governance and data", "k": ["PLWDM"], "l": "PLWDM", "f": "People living with diabetes mellitus", "n": "The population the project serves"}, {"g": "Research design, governance and data", "k": ["T2D"], "l": "T2D", "f": "Type 2 diabetes", "n": "Trial eligibility"}, {"g": "Research design, governance and data", "k": ["XAI"], "l": "XAI", "f": "Explainable artificial intelligence", "n": "Models whose outputs can be interpreted; used in Track A"}, {"g": "Research design, governance and data", "k": ["AI"], "l": "AI", "f": "Artificial intelligence", "n": "The bounded AI companion and Track A modelling"}, {"g": "Research design, governance and data", "k": ["SHAP"], "l": "SHAP", "f": "SHapley Additive exPlanations", "n": "Shows how much each factor contributes to a model's prediction"}, {"g": "Research design, governance and data", "k": ["DSMC"], "l": "DSMC", "f": "Data Safety Monitoring Committee", "n": "Independent trial safety oversight; reviews at 33% and 67% of recruitment"}, {"g": "Research design, governance and data", "k": ["SAB"], "l": "SAB", "f": "Scientific Advisory Board", "n": "Reviews country protocols and XAI outputs"}, {"g": "Research design, governance and data", "k": ["LEABs", "LEAB"], "l": "LEAB", "f": "Lived Experience Advisory Board", "n": "8 PLWDM per country, at least half women"}, {"g": "Research design, governance and data", "k": ["ETEPAI"], "l": "ETEPAI", "f": "Important Ethical, Technical, and Epidemiological Considerations in an AI Tool Production", "n": "Ethical framework for the AI companion; SingHealth leads AI governance"}, {"g": "Research design, governance and data", "k": ["RQRA"], "l": "RQRA", "f": "Regional Quality Research Alliance", "n": "The mechanism designed to outlive the grant; constituted at M54"}, {"g": "Research design, governance and data", "k": ["REALQUAMI"], "l": "REALQUAMI", "f": "Research landscapes and quality in Malaysia and Indonesia", "n": "Systematic review protocol (PROSPERO CRD42020152907); REALQUAMI-extended widens it across ASEAN in Phase 1"}, {"g": "Research design, governance and data", "k": ["PROSPERO"], "l": "PROSPERO", "f": "International Prospective Register of Systematic Reviews", "n": "Where the REALQUAMI protocol is registered"}, {"g": "Research design, governance and data", "k": ["REDCap"], "l": "REDCap", "f": "Research Electronic Data Capture", "n": "Offline-capable data capture for Track B registries"}, {"g": "Research design, governance and data", "k": ["Prolanis"], "l": "Prolanis", "f": "Program Pengelolaan Penyakit Kronis", "n": "Indonesia's national chronic disease management programme; a Track A data source"}, {"g": "Research design, governance and data", "k": ["VEMOFIT"], "l": "VEMOFIT", "f": "Value-based EMOtion-cognition-Focused educatIonal programme", "n": "The PI's programme to reduce diabetes-related distress in Malay adults with T2D; Digital VEMOFIT is the intervention"}, {"g": "Research design, governance and data", "k": ["DoTTI"], "l": "DoTTI", "f": "DoTTI framework", "n": "Four phases for building a web-based tool: design and development, testing early iterations, testing effectiveness, integration and implementation"}, {"g": "Research design, governance and data", "k": ["ADAPT"], "l": "ADAPT", "f": "ADAPT guidance", "n": "Guidance for adapting interventions to new contexts; used for cultural adaptation"}, {"g": "Research design, governance and data", "k": ["GCP"], "l": "GCP", "f": "Good Clinical Practice", "n": "Taught in the Year 1 methodology workshop"}, {"g": "Research design, governance and data", "k": ["GRADE"], "l": "GRADE", "f": "Grading of Recommendations Assessment, Development and Evaluation", "n": "Framing for policy-brief recommendations"}, {"g": "Research design, governance and data", "k": [], "l": "M1 to M60", "f": "Project month", "n": "M1 = January 2027; hover any month on this page to see its calendar date"}, {"g": "Research design, governance and data", "k": [], "l": "Y1 to Y5", "f": "Project year", "n": "2027 to 2031"}, {"g": "Research design, governance and data", "k": ["Track A", "Track B"], "l": "Track A / Track B", "f": "The two Phase 2 tracks", "n": "A: big data and XAI at higher-readiness sites. B: digital registries where data are thin"}, {"g": "Measures and reporting standards", "k": ["DDS-17", "DDS"], "l": "DDS-17", "f": "Diabetes Distress Scale, 17 items", "n": "Primary outcome at 12 months; mean item score of 2 or more = moderate, 3 or more = high"}, {"g": "Measures and reporting standards", "k": ["PAID-5"], "l": "PAID-5", "f": "Problem Areas in Diabetes, 5 items", "n": "Secondary outcome; 8 or more = possible distress"}, {"g": "Measures and reporting standards", "k": ["PHQ-9"], "l": "PHQ-9", "f": "Patient Health Questionnaire, 9 items", "n": "Depressive symptoms; 5 or more = at least mild"}, {"g": "Measures and reporting standards", "k": ["GAD-7"], "l": "GAD-7", "f": "Generalized Anxiety Disorder scale, 7 items", "n": "Anxiety"}, {"g": "Measures and reporting standards", "k": ["SPIRIT"], "l": "SPIRIT 2013", "f": "Standard Protocol Items: Recommendations for Interventional Trials", "n": "How the trial protocols are reported"}, {"g": "Measures and reporting standards", "k": ["CONSORT-PRAG"], "l": "CONSORT-PRAG", "f": "CONSORT extension for pragmatic trials", "n": "Reporting the definitive pragmatic trial"}, {"g": "Measures and reporting standards", "k": ["CONSORT"], "l": "CONSORT", "f": "Consolidated Standards of Reporting Trials", "n": "How trial results are reported"}, {"g": "Measures and reporting standards", "k": ["TRIPOD"], "l": "TRIPOD", "f": "Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis", "n": "Reporting Track A models"}, {"g": "Measures and reporting standards", "k": ["STROBE"], "l": "STROBE", "f": "Strengthening the Reporting of Observational Studies in Epidemiology", "n": "Reporting registry and cohort studies"}, {"g": "Measures and reporting standards", "k": ["ICMJE"], "l": "ICMJE", "f": "International Committee of Medical Journal Editors", "n": "Authorship criteria"}, {"g": "Measures and reporting standards", "k": ["CRediT"], "l": "CRediT", "f": "Contributor Roles Taxonomy", "n": "Statements of who did what on each paper"}, {"g": "Symbols and journals (deck source lines)", "k": [], "l": "n · r · ≥ · ×", "f": "Number of participants · correlation coefficient · greater than or equal to · times", "n": "r = 0.50 is Spearman's, between distress and depressive symptoms"}, {"g": "Symbols and journals (deck source lines)", "k": [], "l": "Front Psychol", "f": "Frontiers in Psychology", "n": ""}, {"g": "Symbols and journals (deck source lines)", "k": [], "l": "Singapore Med J", "f": "Singapore Medical Journal", "n": ""}, {"g": "Symbols and journals (deck source lines)", "k": [], "l": "BMC Health Serv Res", "f": "BMC Health Services Research", "n": ""}, {"g": "Symbols and journals (deck source lines)", "k": [], "l": "JAFES", "f": "Journal of the ASEAN Federation of Endocrine Societies", "n": ""}, {"g": "Symbols and journals (deck source lines)", "k": [], "l": "Diabet Med", "f": "Diabetic Medicine", "n": ""}, {"g": "Also on this page", "k": ["D4H"], "l": "D4H", "f": "DREAM 4 Health", "n": "The SEA DREAM call we applied to"}, {"g": "Also on this page", "k": ["SEAMEO"], "l": "SEAMEO", "f": "Southeast Asian Ministers of Education Organization", "n": "Its Secretariat implements SEA DREAM"}, {"g": "Also on this page", "k": ["FCDO"], "l": "FCDO", "f": "Foreign, Commonwealth & Development Office", "n": "UK government co-funder"}, {"g": "Also on this page", "k": ["GPS"], "l": "GPS", "f": "General Practitioners' Society", "n": "As in Myanmar GPS (CM-3)"}, {"g": "Also on this page", "k": ["FTE"], "l": "FTE", "f": "Full-time equivalent", "n": "Share of a full-time post"}, {"g": "Also on this page", "k": ["CV"], "l": "CV", "f": "Curriculum vitae", "n": ""}, {"g": "Also on this page", "k": ["EDI"], "l": "EDI", "f": "Equity, diversity and inclusion", "n": ""}, {"g": "Also on this page", "k": ["Data4Life"], "l": "Data4Life", "f": "Data4Life (D4L)", "n": "Provider of the D4L Collect data-capture platform"}, {"g": "Also on this page", "k": ["DNeX"], "l": "DNeX", "f": "Dagang NeXchange Berhad", "n": "Malaysian company providing the hub's sovereign cloud"}, {"g": "Also on this page", "k": ["ICT"], "l": "ICT", "f": "Indochina Time", "n": "Bangkok time, UTC+7"}, {"g": "Also on this page", "k": ["UTC"], "l": "UTC", "f": "Coordinated Universal Time", "n": ""}, {"g": "Also on this page", "k": ["TDAC"], "l": "TDAC", "f": "Thailand Digital Arrival Card", "n": "Complete online within three days before arrival"}, {"g": "Also on this page", "k": ["THB"], "l": "THB", "f": "Thai baht", "n": ""}, {"g": "Also on this page", "k": ["KEMRI"], "l": "KEMRI", "f": "Kenya Medical Research Institute", "n": "Panel member's organisation"}, {"g": "Also on this page", "k": ["KNUST"], "l": "KNUST", "f": "Kwame Nkrumah University of Science and Technology", "n": "Panel member's organisation"}, {"g": "Also on this page", "k": ["MORU"], "l": "MORU", "f": "Mahidol Oxford Tropical Medicine Research Unit", "n": "Panel member's organisation"}, {"g": "Also on this page", "k": ["PDR"], "l": "PDR", "f": "People's Democratic Republic", "n": "As in Lao PDR"}];
+  var body = document.getElementById('gl-body'), panel = document.getElementById('glossary'),
+      tab = document.getElementById('gl-tab'), q = document.getElementById('gl-q'),
+      pop = document.getElementById('gl-pop');
+  // ---- build the panel
+  var groups = [], byKey = {};
+  G.forEach(function(e, i){
+    e.id = 'gl-' + i;
+    if (groups.indexOf(e.g) < 0) groups.push(e.g);
+    e.k.forEach(function(k){ byKey[k] = e; });
+  });
+  groups.forEach(function(g){
+    var h = document.createElement('h3'); h.textContent = g; body.appendChild(h);
+    var dl = document.createElement('dl');
+    G.filter(function(e){ return e.g === g; })
+     .sort(function(a, b){ return a.l.localeCompare(b.l, 'en', {sensitivity:'base'}); })
+     .forEach(function(e){
+      var d = document.createElement('div'); d.className = 'ge'; d.id = e.id;
+      d.innerHTML = '<dt></dt><dd><span class="f"></span><span class="n"></span></dd>';
+      d.querySelector('dt').textContent = e.l;
+      d.querySelector('.f').textContent = e.f;
+      d.querySelector('.n').textContent = e.n || '';
+      dl.appendChild(d);
+    });
+    body.appendChild(dl);
+  });
+  var none = document.createElement('div'); none.className = 'none'; none.textContent = 'No matching term.'; body.appendChild(none);
+
+  function openPanel(focusId){
+    panel.classList.add('open'); panel.setAttribute('aria-hidden', 'false'); tab.setAttribute('aria-expanded', 'true');
+    if (focusId){
+      q.value = ''; filter();
+      var el = document.getElementById(focusId);
+      if (el){ el.scrollIntoView({block:'center'}); el.classList.add('hit'); setTimeout(function(){ el.classList.remove('hit'); }, 1600); }
+    } else { setTimeout(function(){ q.focus(); }, 60); }
+  }
+  function closePanel(){
+    panel.classList.remove('open'); panel.setAttribute('aria-hidden', 'true'); tab.setAttribute('aria-expanded', 'false');
+  }
+  tab.addEventListener('click', function(){ panel.classList.contains('open') ? closePanel() : openPanel(); });
+  panel.querySelector('.gx').addEventListener('click', function(){ closePanel(); tab.focus(); });
+  function filter(){
+    var t = q.value.trim().toLowerCase(), shown = 0;
+    body.querySelectorAll('.ge').forEach(function(d){
+      var ok = !t || d.textContent.toLowerCase().indexOf(t) >= 0;
+      d.style.display = ok ? '' : 'none'; if (ok) shown++;
+    });
+    body.querySelectorAll('h3').forEach(function(h){
+      var dl = h.nextElementSibling, any = false;
+      dl.querySelectorAll('.ge').forEach(function(d){ if (d.style.display !== 'none') any = true; });
+      h.style.display = dl.style.display = any ? '' : 'none';
+    });
+    none.style.display = shown ? 'none' : 'block';
+  }
+  q.addEventListener('input', filter);
+
+  // ---- mark terms on the page (first use in each section)
+  function esc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  var keys = Object.keys(byKey).sort(function(a, b){ return b.length - a.length; });
+  var re = new RegExp('(^|[^A-Za-z0-9-])(' + keys.map(esc).join('|') + '|M(?:[1-9]|[1-5][0-9]|60)|Y[1-5])(?![A-Za-z0-9])', 'g');
+  var reTest = new RegExp(re.source);
+  var MON = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function monthEntry(t){
+    var m = t.charAt(0) === 'M', n = parseInt(t.slice(1), 10);
+    if (m){ var z = n - 1; return {l: t, f: 'Project month ' + n, n: MON[z % 12] + ' ' + (2027 + Math.floor(z / 12)) + ' (M1 = January 2027)', id: G.filter(function(e){ return e.l === 'M1 to M60'; })[0].id}; }
+    return {l: t, f: 'Project year ' + n, n: String(2026 + n), id: G.filter(function(e){ return e.l === 'Y1 to Y5'; })[0].id};
+  }
+  var SKIP = 'SCRIPT,STYLE,A,BUTTON,CODE,INPUT,TEXTAREA,SELECT,NAV,ASIDE,TITLE';
+  document.querySelectorAll('.hero, section').forEach(function(sec){
+    var seen = {};
+    var walker = document.createTreeWalker(sec, NodeFilter.SHOW_TEXT, {acceptNode: function(n){
+      for (var p = n.parentNode; p && p !== sec; p = p.parentNode){
+        if (SKIP.indexOf(p.nodeName) >= 0 || (p.classList && (p.classList.contains('gl') || p.classList.contains('count')))) return NodeFilter.FILTER_REJECT;
+      }
+      reTest.lastIndex = 0; return reTest.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+    }});
+    var nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node){
+      var text = node.nodeValue, out = document.createDocumentFragment(), last = 0, m, changed = false;
+      re.lastIndex = 0;
+      while ((m = re.exec(text))){
+        var term = m[2], start = m.index + m[1].length;
+        var e = byKey[term] || (/^[MY]\d+$/.test(term) ? monthEntry(term) : null);
+        var key = byKey[term] ? byKey[term].id : term;
+        if (!e || seen[key]) continue;
+        seen[key] = true; changed = true;
+        out.appendChild(document.createTextNode(text.slice(last, start)));
+        var s = document.createElement('span'); s.className = 'gl'; s.tabIndex = 0; s.textContent = term;
+        s.setAttribute('aria-describedby', 'gl-pop');
+        s._gl = e; out.appendChild(s); last = start + term.length;
+      }
+      if (!changed) return;
+      out.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(out, node);
+    });
+  });
+
+  // ---- pop-up
+  var current = null, hideT = null;
+  function show(el){
+    clearTimeout(hideT); current = el; var e = el._gl;
+    pop.innerHTML = '<b></b><div class="f"></div><div class="n"></div><button type="button">Open in glossary</button>';
+    pop.querySelector('b').textContent = e.l; pop.querySelector('.f').textContent = e.f;
+    var n = pop.querySelector('.n'); n.textContent = e.n || ''; if (!e.n) n.remove();
+    pop.querySelector('button').onclick = function(){ hide(true); openPanel(e.id); };
+    pop.style.display = 'block';
+    var r = el.getBoundingClientRect(), w = pop.offsetWidth, x = r.left + window.scrollX;
+    x = Math.max(8 + window.scrollX, Math.min(x, window.scrollX + document.documentElement.clientWidth - w - 8));
+    var y = r.bottom + window.scrollY + 6;
+    if (r.bottom + pop.offsetHeight + 12 > window.innerHeight) y = r.top + window.scrollY - pop.offsetHeight - 6;
+    pop.style.left = x + 'px'; pop.style.top = y + 'px';
+  }
+  function hide(now){ clearTimeout(hideT); if (now){ pop.style.display = 'none'; current = null; } else hideT = setTimeout(function(){ pop.style.display = 'none'; current = null; }, 180); }
+  document.addEventListener('mouseover', function(ev){ var t = ev.target.closest && ev.target.closest('.gl'); if (t) show(t); });
+  document.addEventListener('mouseout', function(ev){ var t = ev.target.closest && ev.target.closest('.gl'); if (t && !(ev.relatedTarget && pop.contains(ev.relatedTarget))) hide(); });
+  pop.addEventListener('mouseenter', function(){ clearTimeout(hideT); });
+  pop.addEventListener('mouseleave', function(){ hide(); });
+  document.addEventListener('focusin', function(ev){ if (ev.target.classList && ev.target.classList.contains('gl')) show(ev.target); });
+  document.addEventListener('focusout', function(ev){ if (ev.target.classList && ev.target.classList.contains('gl') && !(ev.relatedTarget && pop.contains(ev.relatedTarget))) hide(); });
+  document.addEventListener('click', function(ev){
+    var t = ev.target.closest && ev.target.closest('.gl');
+    if (t){ (current === t && pop.style.display === 'block') ? hide(true) : show(t); return; }
+    if (!pop.contains(ev.target)) hide(true);
+  });
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape'){ hide(true); if (panel.classList.contains('open')){ closePanel(); tab.focus(); } }
+  });
+  window.addEventListener('resize', function(){ hide(true); });
+})();
+</script>
+
+</body>
+</html>
