@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: If you use this resource, please cite it as below.
+title: 'Diabetes distress: interactive evidence map'
+abstract: 'An interactive evidence map of diabetes distress in adults and young people with diabetes:
+  a PubMed landscape of 2,438 records classified by study design, pooled effect estimates from
+  randomised trials, diabetes distress instruments and their validated language versions, and
+  the recommendations of the EASD, ADA, ISPAD, NICE and SIGN guidelines.'
+type: dataset
+version: '1.0'
+date-released: '2026-10-07'
+license: CC-BY-4.0
+url: https://boonhowchew.github.io/ASEAN-DCARE/DD-evidence-map.html
+repository-code: https://github.com/boonhowchew/ASEAN-DCARE
+keywords:
+- diabetes distress
+- diabetes mellitus
+- psychosocial care
+- primary care
+- evidence map
+- Diabetes Distress Scale
+- Problem Areas in Diabetes
+authors:
+- family-names: Chew
+  given-names: Boon-How
+  orcid: https://orcid.org/0000-0002-8627-6248
+  email: chewboonhow@upm.edu.my
+  affiliation: Department of Family Medicine, Faculty of Medicine and Health Sciences, Universiti
+    Putra Malaysia, 43400 UPM Serdang, Selangor, Malaysia
